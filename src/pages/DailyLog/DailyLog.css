@@ -1,0 +1,237 @@
+.daily-log-page {
+  min-height: 100vh;
+  background: var(--color-gray-50);
+  display: flex;
+  flex-direction: column;
+}
+
+.daily-log-content {
+  flex: 1;
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 2rem;
+  width: 100%;
+}
+
+.daily-log-header {
+  margin-bottom: 2rem;
+  
+}
+
+.daily-log-header h1 {
+  font-size: 2.5rem;
+  font-weight: 800;
+  color: var(--color-gray-900);
+  margin-bottom: 0.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.daily-log-header p {
+  color: var(--color-gray-600);
+  font-size: 1.1rem;
+  font-weight: bold;
+   display: flex;
+  justify-content: center;
+  align-items: center;
+
+}
+
+.daily-log-form {
+  background: var(--color-white);
+  padding: 2rem;
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow-md);
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.form-group label {
+  font-weight: 600;
+  color: var(--color-gray-700);
+  font-size: 0.95rem;
+}
+
+.form-group input,
+.form-group select {
+  padding: 0.875rem 1rem;
+  border: 2px solid var(--color-gray-200);
+  border-radius: var(--radius-lg);
+  font-size: 1rem;
+  transition: all var(--transition-base);
+  background: var(--color-white);
+  width: 100%;
+}
+
+.form-group input:focus,
+.form-group select:focus {
+  outline: none;
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 3px rgba(20, 184, 166, 0.1);
+}
+
+.form-group select {
+  cursor: pointer;
+}
+
+.log-section {
+  margin: 2rem 0;
+  padding: 1.5rem;
+  background: var(--color-gray-50);
+  border-radius: var(--radius-lg);
+  border: 2px solid var(--color-gray-200);
+}
+
+.log-section h2 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--color-gray-900);
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.activities-list {
+  margin: 1rem 0;
+  min-height: 60px;
+}
+
+.activity-item {
+  padding: 0.875rem 1rem;
+  background: var(--color-white);
+  border-radius: var(--radius-lg);
+  margin-bottom: 0.75rem;
+  box-shadow: var(--shadow-sm);
+  color: var(--color-gray-700);
+  font-weight: 500;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+}
+
+.activity-details {
+  flex: 1;
+}
+
+.activity-details strong {
+  color: var(--color-gray-900);
+  font-weight: 600;
+}
+
+.activity-desc {
+  font-size: 0.85rem;
+  color: var(--color-gray-600);
+  margin: 0.25rem 0 0 0;
+  font-weight: 400;
+}
+
+.btn-remove {
+  background: none;
+  border: none;
+  color: var(--color-gray-400);
+  cursor: pointer;
+  padding: 0.5rem;
+  border-radius: var(--radius-md);
+  transition: all var(--transition-base);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.btn-remove:hover {
+  color: #EF4444;
+  background: rgba(239, 68, 68, 0.1);
+}
+
+.activity-form {
+  background: var(--color-white);
+  padding: 1.5rem;
+  border-radius: var(--radius-lg);
+  border: 2px solid var(--color-primary-light);
+  margin: 1rem 0;
+  box-shadow: var(--shadow-sm);
+}
+
+.form-buttons {
+  display: flex;
+  gap: 0.75rem;
+  margin-top: 1rem;
+}
+
+.btn-sm {
+  padding: 0.625rem 1.25rem;
+  font-size: 0.9rem;
+}
+
+.log-section .btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.log-section h2 {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.empty-state {
+  color: var(--color-gray-500);
+  text-align: center;
+  padding: 1.5rem;
+  font-style: italic;
+}
+
+.log-section .btn-secondary {
+  margin-top: 0.5rem;
+}
+
+.daily-log-form > .btn-primary {
+  margin-top: 2rem;
+  padding: 1rem 2rem;
+  font-size: 1.1rem;
+  font-weight: 600;
+  width: 100%;
+  border-radius: var(--radius-lg);
+  transition: all var(--transition-base);
+}
+
+.daily-log-form > .btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 25px rgba(13, 148, 136, 0.3);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .daily-log-content {
+    padding: 1.5rem;
+  }
+
+  .daily-log-header h1 {
+    font-size: 2rem;
+  }
+
+  .daily-log-header p {
+    font-size: 1rem;
+  }
+
+  .daily-log-form {
+    padding: 1.5rem;
+  }
+
+  .log-section {
+    padding: 1rem;
+  }
+
+  .log-section h2 {
+    font-size: 1.25rem;
+  }
+}

@@ -1,0 +1,115 @@
+.recommendations-page {
+  min-height: 100vh;
+  background: var(--color-gray-50);
+  display: flex;
+  flex-direction: column;
+}
+
+.recommendations-content {
+  flex: 1;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 2rem;
+  width: 100%;
+}
+
+.recommendations-header {
+  margin-bottom: 2rem;
+}
+
+.recommendations-header h1 {
+  font-size: 2.5rem;
+  font-weight: 800;
+  color: var(--color-gray-900);
+  margin-bottom: 0.5rem;
+  display: flex;
+  justify-content: center;
+}
+
+.recommendations-header p {
+  color: var(--color-gray-600);
+  font-size: 1.1rem;
+  font-weight: bold;
+  display: flex;
+  justify-content: center;
+}
+
+.filter-section {
+  background: var(--color-white);
+  padding: 1.5rem;
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow-sm);
+  margin-bottom: 2rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.filter-section label {
+  font-weight: 600;
+  color: var(--color-gray-700);
+  font-size: 0.95rem;
+}
+
+.filter-section select {
+  padding: 0.75rem 1rem;
+  border: 2px solid var(--color-gray-200);
+  border-radius: var(--radius-lg);
+  font-size: 0.95rem;
+  min-width: 200px;
+  cursor: pointer;
+  transition: all var(--transition-base);
+  background: var(--color-white);
+}
+
+.filter-section select:focus {
+  outline: none;
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 3px rgba(20, 184, 166, 0.1);
+}
+
+.recommendations-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.empty-state {
+  text-align: center;
+  padding: 4rem 2rem;
+  color: var(--color-gray-500);
+  font-size: 1.1rem;
+  background: var(--color-white);
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow-sm);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .recommendations-content {
+    padding: 1.5rem;
+  }
+
+  .recommendations-header h1 {
+    font-size: 2rem;
+  }
+
+  .recommendations-header p {
+    font-size: 1rem;
+  }
+
+  .filter-section {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .filter-section select {
+    width: 100%;
+  }
+
+  .recommendations-grid {
+    grid-template-columns: 1fr;
+  }
+}

@@ -1,0 +1,13 @@
+/* Import CSS Variables and Global Styles */
+@import './styles/variables.css';
+@import './styles/global.css';
+
+/* Import Component Styles */
+@import './components/Navbar.css';
+@import './components/Footer.css';
+
+/* Import Page Styles */
+@import './pages/Intro/Intro.css';
+@import './pages/Landing/Landing.css';
+@import './pages/History/History.css';
+@import './pages/Leaderboard/Leaderboard.css';
