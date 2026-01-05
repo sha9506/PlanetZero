@@ -1,0 +1,297 @@
+{
+  "info": {
+    "name": "PlanetZero API",
+    "description": "Complete API collection for PlanetZero backend",
+    "version": "1.0.0"
+  },
+  "baseUrl": "http://localhost:8000/api",
+  "auth": {
+    "type": "bearer",
+    "bearer": "{{access_token}}"
+  },
+  "requests": {
+    "authentication": {
+      "signup": {
+        "method": "POST",
+        "url": "/auth/signup",
+        "headers": {
+          "Content-Type": "application/json"
+        },
+        "body": {
+          "email": "user@example.com",
+          "password": "securepass123",
+          "name": "John Doe",
+          "age": 28,
+          "gender": "male",
+          "country": "USA",
+          "city": "San Francisco"
+        }
+      },
+      "login": {
+        "method": "POST",
+        "url": "/auth/login",
+        "headers": {
+          "Content-Type": "application/x-www-form-urlencoded"
+        },
+        "body": "username=user@example.com&password=securepass123",
+        "note": "Returns access_token to use in Authorization header"
+      }
+    },
+    "users": {
+      "getProfile": {
+        "method": "GET",
+        "url": "/users/me",
+        "auth": "required"
+      },
+      "updateProfile": {
+        "method": "PUT",
+        "url": "/users/me",
+        "auth": "required",
+        "body": {
+          "name": "Jane Doe",
+          "age": 29,
+          "city": "Los Angeles"
+        }
+      },
+      "completeOnboarding": {
+        "method": "POST",
+        "url": "/users/onboarding",
+        "auth": "required",
+        "body": {
+          "energy_source": "Solar",
+          "country": "USA",
+          "city": "San Francisco"
+        }
+      }
+    },
+    "activities": {
+      "createDailyLog": {
+        "method": "POST",
+        "url": "/activities/daily-logs",
+        "auth": "required",
+        "body": {
+          "date": "2024-01-15",
+          "transport": [
+            {
+              "mode": "Car (Gasoline)",
+              "distance": 25.5,
+              "description": "Commute to work"
+            },
+            {
+              "mode": "Bus",
+              "distance": 10.0,
+              "description": "Evening shopping"
+            }
+          ],
+          "energy": {
+            "electricity": 15.5,
+            "heating": 8.0
+          },
+          "meals": [
+            {
+              "type": "Breakfast",
+              "description": "Oatmeal with fruits",
+              "servings": 1
+            },
+            {
+              "type": "Lunch",
+              "description": "Chicken salad",
+              "servings": 1
+            },
+            {
+              "type": "Dinner",
+              "description": "Pasta with vegetables",
+              "servings": 1
+            }
+          ]
+        }
+      },
+      "getDailyLogs": {
+        "method": "GET",
+        "url": "/activities/daily-logs?limit=30",
+        "auth": "required"
+      },
+      "getDailyLog": {
+        "method": "GET",
+        "url": "/activities/daily-logs/{log_id}",
+        "auth": "required"
+      },
+      "updateDailyLog": {
+        "method": "PUT",
+        "url": "/activities/daily-logs/{log_id}",
+        "auth": "required",
+        "body": {
+          "date": "2024-01-15",
+          "transport": [],
+          "energy": {
+            "electricity": 12.0,
+            "heating": 6.0
+          },
+          "meals": []
+        }
+      },
+      "deleteDailyLog": {
+        "method": "DELETE",
+        "url": "/activities/daily-logs/{log_id}",
+        "auth": "required"
+      },
+      "getStats": {
+        "method": "GET",
+        "url": "/activities/stats",
+        "auth": "required"
+      }
+    },
+    "recommendations": {
+      "getAll": {
+        "method": "GET",
+        "url": "/recommendations",
+        "auth": "required"
+      },
+      "getOne": {
+        "method": "GET",
+        "url": "/recommendations/{recommendation_id}",
+        "auth": "required"
+      },
+      "complete": {
+        "method": "POST",
+        "url": "/recommendations/{recommendation_id}/complete",
+        "auth": "required",
+        "note": "Awards 50 points"
+      },
+      "uncomplete": {
+        "method": "POST",
+        "url": "/recommendations/{recommendation_id}/uncomplete",
+        "auth": "required"
+      },
+      "getCompleted": {
+        "method": "GET",
+        "url": "/recommendations/user/completed",
+        "auth": "required"
+      }
+    },
+    "communities": {
+      "create": {
+        "method": "POST",
+        "url": "/communities",
+        "auth": "required",
+        "body": {
+          "name": "Urban Gardeners",
+          "description": "Growing food in the city together",
+          "category": "gardening",
+          "location": "San Francisco, CA"
+        },
+        "note": "Awards Community Founder badge"
+      },
+      "getAll": {
+        "method": "GET",
+        "url": "/communities",
+        "auth": "required"
+      },
+      "search": {
+        "method": "GET",
+        "url": "/communities?category=gardening&search=urban",
+        "auth": "required"
+      },
+      "getMyCommunities": {
+        "method": "GET",
+        "url": "/communities/my-communities",
+        "auth": "required"
+      },
+      "getOne": {
+        "method": "GET",
+        "url": "/communities/{community_id}",
+        "auth": "required"
+      },
+      "join": {
+        "method": "POST",
+        "url": "/communities/{community_id}/join",
+        "auth": "required",
+        "note": "Awards 25 points"
+      },
+      "leave": {
+        "method": "POST",
+        "url": "/communities/{community_id}/leave",
+        "auth": "required"
+      },
+      "getMembers": {
+        "method": "GET",
+        "url": "/communities/{community_id}/members",
+        "auth": "required"
+      },
+      "updateActivities": {
+        "method": "PUT",
+        "url": "/communities/{community_id}/activities",
+        "auth": "required",
+        "body": [
+          "Community Cleanup - Every Saturday",
+          "Weekly Workshop - Sustainable Living",
+          "Monthly Bike Ride"
+        ],
+        "note": "Leaders only"
+      }
+    },
+    "leaderboard": {
+      "getRankings": {
+        "method": "GET",
+        "url": "/leaderboard?limit=50",
+        "auth": "required"
+      },
+      "getUserRank": {
+        "method": "GET",
+        "url": "/leaderboard/user/{user_id}",
+        "auth": "required"
+      },
+      "getStats": {
+        "method": "GET",
+        "url": "/leaderboard/stats",
+        "auth": "required"
+      }
+    },
+    "notifications": {
+      "getAll": {
+        "method": "GET",
+        "url": "/notifications?limit=50",
+        "auth": "required"
+      },
+      "getUnread": {
+        "method": "GET",
+        "url": "/notifications?unread_only=true",
+        "auth": "required"
+      },
+      "getUnreadCount": {
+        "method": "GET",
+        "url": "/notifications/unread-count",
+        "auth": "required"
+      },
+      "markRead": {
+        "method": "PUT",
+        "url": "/notifications/{notification_id}/read",
+        "auth": "required"
+      },
+      "markAllRead": {
+        "method": "PUT",
+        "url": "/notifications/read-all",
+        "auth": "required"
+      },
+      "delete": {
+        "method": "DELETE",
+        "url": "/notifications/{notification_id}",
+        "auth": "required"
+      }
+    }
+  },
+  "examples": {
+    "workflow": [
+      "1. POST /auth/signup - Create account",
+      "2. POST /auth/login - Get access token",
+      "3. Use token in Authorization: Bearer {token} header",
+      "4. POST /users/onboarding - Complete onboarding",
+      "5. POST /activities/daily-logs - Log daily activities",
+      "6. GET /recommendations - Get eco recommendations",
+      "7. POST /recommendations/{id}/complete - Complete one",
+      "8. POST /communities - Create a community",
+      "9. GET /leaderboard - Check rankings",
+      "10. GET /notifications - Check notifications"
+    ]
+  }
+}
