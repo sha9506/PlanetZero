@@ -231,21 +231,6 @@ PlanetZero/
 └── README.md
 ```
 
-## 🔑 Environment Variables
-
-### Frontend (.env)
-```env
-REACT_APP_API_URL=http://localhost:8000/api
-```
-
-### Backend (.env)
-```env
-DATABASE_URL=mongodb://localhost:27017
-DATABASE_NAME=planetzero_db
-SECRET_KEY=your-secret-key-here
-ALGORITHM=HS256
-ACCESS_TOKEN_EXPIRE_MINUTES=30
-```
 
 ## 🧪 Testing
 
